@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"] {
+            width: 50px;
+            padding: 0.5em;
+            margin-right: 1em;
+        }
+        input[type="submit"] {
+            padding: 0.5em 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .feedback {
+            margin-top: 1em;
+            font-size: 1.2em;
+        }
+        .attempts {
+            margin-top: 0.5em;
+            color: #20827d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guessing Game</h1>
+        <form method="POST">
+            <input type="number" name="guess" required>
+            <input type="submit" value="Submit">
+        </form>
+        {% if feedback %}
+            <div class="feedback">{{ feedback }}</div>
+        {% endif %}
+        {% if attempts %}
+            <div class="attempts">It took you {{ attempts }} attempts.</div>
+        {% endif %}
+    </div>
+</body>
+</html>
